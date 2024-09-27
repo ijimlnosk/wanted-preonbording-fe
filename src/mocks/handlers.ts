@@ -1,7 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { getMockData, MockDataResponse } from "./mockData";
+import { getMockData } from "./mockData";
+import { MockDataResponse } from "./type";
 
-export const handler = [
+export const handlers = [
     http.get("/api/products", async ({ request }) => {
         const url = new URL(request.url);
         const page = Number(url.searchParams.get("page")) || 1;

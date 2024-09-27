@@ -1,7 +1,12 @@
 import "./App.css";
+import InfiniteScrollList from "./component/infiniteScrollList";
 
 function App() {
-    return <></>;
+    return (
+        <>
+            <InfiniteScrollList />
+        </>
+    );
 }
 
 export default App;

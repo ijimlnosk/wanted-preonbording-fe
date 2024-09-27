@@ -1,14 +1,4 @@
-export interface MockData {
-    productId: string;
-    productName: string;
-    price: number;
-    boughtDate: string;
-}
-
-export interface MockDataResponse {
-    datas: MockData[];
-    isEnd: boolean;
-}
+import { MockData, MockDataResponse } from "./type";
 
 const MOCK_DATA: MockData[] = [
     {
