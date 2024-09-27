@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts"],"version":"5.6.2"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/component/infinitescrolllist.tsx","./src/component/loading.tsx","./src/component/productcard.tsx","./src/component/type.ts","./src/mocks/browser.ts","./src/mocks/handlers.ts","./src/mocks/mockdata.ts","./src/mocks/server.ts","./src/mocks/type.ts"],"version":"5.6.2"}
