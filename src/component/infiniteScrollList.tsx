@@ -11,6 +11,7 @@ const InfiniteScrollList = () => {
         isLoading: false,
         hasMore: true,
     });
+    const [totalPice, setTotalPrice] = useState(0);
 
     const observer = useRef<IntersectionObserver | null>(null);
 
@@ -50,25 +51,38 @@ const InfiniteScrollList = () => {
         fetchProduct();
     }, [productList.page]);
 
+    useEffect(() => {
+        const newTotalPrice = productList.items.reduce(
+            (sum, item) => sum + item.price,
+            0
+        );
+        setTotalPrice(newTotalPrice);
+    }, [productList.items]);
+
     return (
-        <div className="flex flex-col justify-center items-center">
-            <div className="w-[1280px] grid grid-cols-3">
-                {productList.items.map((product, index) => (
-                    <div
-                        key={index}
-                        ref={
-                            index === productList.items.length - 1
-                                ? lastItemRef
-                                : null
-                        }
-                        className=""
-                    >
-                        <ProductCard productItem={product} />
-                    </div>
-                ))}
+        <>
+            <div className="w-full h-[100px] fixed flex top-0 justify-center items-center bg-white">
+                총 합계 : {totalPice.toLocaleString()}
             </div>
-            {productList.isLoading && <Loading />}
-        </div>
+            <div className="flex flex-col justify-center items-center mt-[100px]">
+                <div className="w-[1280px] grid grid-cols-3">
+                    {productList.items.map((product, index) => (
+                        <div
+                            key={index}
+                            ref={
+                                index === productList.items.length - 1
+                                    ? lastItemRef
+                                    : null
+                            }
+                            className=""
+                        >
+                            <ProductCard productItem={product} />
+                        </div>
+                    ))}
+                </div>
+                {productList.isLoading && <Loading />}
+            </div>
+        </>
     );
 };
 
